@@ -26,7 +26,9 @@ endforeach()
 foreach(test IN LISTS tests)
   add_test(
     NAME pyapi_${test}
-    COMMAND ${projectdir}/test/app/dftb+/bin/autotest2
+    COMMAND cmake "-E" "env"
+                  "PYTHONPATH=${CMAKE_SOURCE_DIR}/tools/pythonapi/build/lib.linux-x86_64-cpython-38/"
+    ${projectdir}/test/app/dftb+/bin/autotest2
         -r ${srcdir}/testcases -w ${builddir}/testcases
 	-d ${projectdir}/test/app/dftb+/bin/tagdiff
         -P "${TEST_RUNNER}" -s P,R,C,S ${test})

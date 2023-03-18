@@ -11,11 +11,9 @@ Tests the scenario that a geometry gets slightly displaced after initialization.
 
 
 import numpy as np
-import dftbplus
+from pythonapi import dftbplus
 from testhelpers import write_autotest_tag
 
-
-LIB_PATH = '../../../../../../../src/dftbp/libdftbplus'
 
 # number of atoms (should match dftb_in.hsd)
 NATOM0 = 2
@@ -51,8 +49,7 @@ def main():
 
     # ------------------CALCULATION OF INITIAL GEOMETRY-------------------------
 
-    cdftb = dftbplus.DftbPlus(libpath=LIB_PATH,
-                              hsdpath='dftb_in.hsd',
+    cdftb = dftbplus.DftbPlus(hsdpath='dftb_in.hsd',
                               logfile='log.log')
 
     # set initial geometry

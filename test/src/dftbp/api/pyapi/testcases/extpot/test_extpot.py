@@ -12,11 +12,9 @@ set an external potential and its gradients.
 
 
 import numpy as np
-import dftbplus
+from pythonapi import dftbplus
 from testhelpers import write_autotest_tag
 
-
-LIB_PATH = '../../../../../../../src/dftbp/libdftbplus'
 
 # number of atoms (should match dftb_in.hsd)
 NATOM0 = 3
@@ -44,8 +42,7 @@ def main():
         [0.023243271928971, -0.000046945156575, 0.004850533043745],
         [0.016384005706180,  0.004608295375551, 0.005401080774962]])
 
-    cdftb = dftbplus.DftbPlus(libpath=LIB_PATH,
-                              hsdpath='dftb_in.hsd',
+    cdftb = dftbplus.DftbPlus(hsdpath='dftb_in.hsd',
                               logfile='log.log')
 
     # set geometry

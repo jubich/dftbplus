@@ -13,11 +13,9 @@ callback functions can be defined, which will be executed at runtime.
 
 
 import numpy as np
-import dftbplus
+from pythonapi import dftbplus
 from testhelpers import write_autotest_tag
 
-
-LIB_PATH = '../../../../../../../src/dftbp/libdftbplus'
 
 # number of atoms (should match dftb_in.hsd file)
 NATOM = 3
@@ -207,8 +205,7 @@ def main():
 
     # ----------------------------MAIN-CALCULATION------------------------------
 
-    cdftb = dftbplus.DftbPlus(libpath=LIB_PATH,
-                              hsdpath='dftb_in.hsd',
+    cdftb = dftbplus.DftbPlus(hsdpath='dftb_in.hsd',
                               logfile='log.log')
 
     # set geometry

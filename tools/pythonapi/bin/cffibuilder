@@ -1,0 +1,35 @@
+#! /usr/bin/env python3
+#------------------------------------------------------------------------------#
+#  DFTB+: general package for performing fast atomistic simulations            #
+#  Copyright (C) 2006 - 2022  DFTB+ developers group                           #
+#                                                                              #
+#  See the LICENSE file for terms of usage and distribution.                   #
+#------------------------------------------------------------------------------#
+#
+'''Script for building the cffi part manually. This scirpt is optional and can
+be deleted if desired. '''
+
+
+import argparse
+from pythonapi.cffibuilder import cffibuilder
+
+USAGE = """Creates the cffi libaries from the dftbplus header and shared
+libary."""
+
+
+def main():
+    '''Main driver routine for cffibuilder.'''
+
+    parser = argparse.ArgumentParser(description=USAGE)
+
+    helpstring = 'dftbplus header file'
+    parser.add_argument('header', help=helpstring)
+    helpstring = 'dftbplus shared libary'
+    parser.add_argument('libary', help=helpstring)
+
+    args = parser.parse_args()
+
+    cffibuilder(args.header, args.libary)
+
+if __name__ == "__main__":
+    main()

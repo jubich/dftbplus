@@ -15,11 +15,9 @@ and calculated.
 
 
 import numpy as np
-import dftbplus
+from pythonapi import dftbplus
 from testhelpers import write_autotest_tag
 
-
-LIB_PATH = '../../../../../../../src/dftbp/libdftbplus'
 
 # number of atoms (should match dftb_in.hsd files)
 NATOM_SI = 2
@@ -111,8 +109,7 @@ def main():
             # set expected number of atoms
             natom0 = NATOM_SI
 
-            cdftb = dftbplus.DftbPlus(libpath=LIB_PATH,
-                                      hsdpath='dftb_in.Si2.hsd',
+            cdftb = dftbplus.DftbPlus(hsdpath='dftb_in.Si2.hsd',
                                       logfile='log.Si2.log')
 
             # set geometry
@@ -123,8 +120,7 @@ def main():
             # set expected number of atoms
             natom0 = NATOM_H2O
 
-            cdftb = dftbplus.DftbPlus(libpath=LIB_PATH,
-                                      hsdpath='dftb_in.H2O.hsd',
+            cdftb = dftbplus.DftbPlus(hsdpath='dftb_in.H2O.hsd',
                                       logfile='log.H2O.log')
 
             # set geometry
